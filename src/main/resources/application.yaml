@@ -1,5 +1,14 @@
 server:
-  port: 8080
+  port: 8181
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pagination
+    username: pagination
+    password: pagination
+  jpa:
+    open-in-view: false
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
 
 logging:
   level:
