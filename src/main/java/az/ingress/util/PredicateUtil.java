@@ -28,4 +28,8 @@ public class PredicateUtil {
         return predicates.toArray(new Predicate[0]);
     }
 
+    public static String applyLikePattern(String data) {
+        return "%" + data + "%";
+    }
+
 }

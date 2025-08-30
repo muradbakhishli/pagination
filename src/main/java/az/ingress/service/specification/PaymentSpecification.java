@@ -6,6 +6,8 @@ import az.ingress.model.criteria.PaymentCriteria;
 import az.ingress.model.enums.PaymentStatus;
 import az.ingress.util.PredicateUtil;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -13,10 +15,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import static az.ingress.util.PredicateUtil.applyLikePattern;
+
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class PaymentSpecification implements Specification<PaymentEntity> {
 
-    private PaymentCriteria paymentCriteria;
+    private final PaymentCriteria paymentCriteria;
 
     @Override
     public Predicate toPredicate(Root<PaymentEntity> root,
@@ -51,9 +56,5 @@ public class PaymentSpecification implements Specification<PaymentEntity> {
                 )
                 .build();
         return cb.and(predicates);
-    }
-
-    private String applyLikePattern(String data) {
-        return "%" + data + "%";
     }
 }

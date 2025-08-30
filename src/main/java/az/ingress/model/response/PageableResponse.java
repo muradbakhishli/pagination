@@ -13,8 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PageableResponse {
-    private List<PaymentResponse> payments;
+public class PageableResponse<T> {
+    private List<T> content;
     private int lastPageNumber;
     private long totalElements;
     private boolean hasNext;

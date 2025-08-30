@@ -1,5 +1,6 @@
 package az.ingress.model.criteria;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PageCriteria {
-    private Integer page;
-    private Integer count;
+    @JsonInclude(JsonInclude.Include.USE_DEFAULTS)
+    private Integer page = 0;
+    @JsonInclude(JsonInclude.Include.USE_DEFAULTS)
+    private Integer count = 10;
 }
