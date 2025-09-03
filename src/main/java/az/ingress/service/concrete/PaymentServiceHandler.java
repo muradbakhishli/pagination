@@ -48,8 +48,10 @@ public class PaymentServiceHandler implements PaymentService {
 
     @Override
     public PaymentResponse createPayment(PaymentRequest paymentRequest) {
+        log.info("ActionLog.createPayment.start - {}", paymentRequest);
         var payment = PAYMENT_MAPPER.toEntity(paymentRequest);
         paymentRepository.save(payment);
+        log.info("ActionLog.createPayment.end - {}", paymentRequest);
         return PAYMENT_MAPPER.toResponse(payment);
     }
 

@@ -9,8 +9,3 @@ spring:
     open-in-view: false
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
-
-logging:
-  level:
-    org.springframework.orm.jpa: DEBUG
-    org.springframework.transaction: DEBUG
