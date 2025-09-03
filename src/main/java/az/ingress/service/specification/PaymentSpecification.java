@@ -17,7 +17,6 @@ import javax.persistence.criteria.Root;
 
 import static az.ingress.util.PredicateUtil.applyLikePattern;
 
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class PaymentSpecification implements Specification<PaymentEntity> {
 
