@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: pagination_container
+    restart: always
+    environment:
+      POSTGRES_USER: pagination
+      POSTGRES_PASSWORD: pagination
+      POSTGRES_DB: pagination
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    container_name: redis_pagination_container
+    restart: always
+    ports:
+      - '6379:6379'
+
