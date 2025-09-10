@@ -16,5 +16,5 @@ public interface PaymentService {
 
     PaymentResponse updatePayment(Long id, PaymentRequest paymentRequest);
 
-    PageableResponse getPayments(PageCriteria pageCriteria, PaymentCriteria paymentCriteria);
+    PageableResponse<PaymentResponse> getPayments(PageCriteria pageCriteria, PaymentCriteria paymentCriteria);
 }

@@ -36,7 +36,7 @@ public class PaymentController {
     }
 
     @GetMapping
-    public PageableResponse getPayments(PageCriteria pageCriteria, PaymentCriteria paymentCriteria) {
+    public PageableResponse<PaymentResponse> getPayments(PageCriteria pageCriteria, PaymentCriteria paymentCriteria) {
         return paymentService.getPayments(pageCriteria, paymentCriteria);
     }
 

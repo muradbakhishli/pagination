@@ -6,7 +6,6 @@ import az.ingress.dao.repository.PaymentRepository;
 import az.ingress.exception.NotFoundException;
 import az.ingress.model.criteria.PageCriteria;
 import az.ingress.model.criteria.PaymentCriteria;
-import az.ingress.model.enums.PageableMapper;
 import az.ingress.model.request.PaymentRequest;
 import az.ingress.model.response.PageableResponse;
 import az.ingress.model.response.PaymentResponse;

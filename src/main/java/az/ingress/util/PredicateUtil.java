@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.function.Function;
 public class PredicateUtil {
 
-    private final List<javax.persistence.criteria.Predicate> predicates = new ArrayList<>();
+    private final List<Predicate> predicates = new ArrayList<>();
 
     public static PredicateUtil builder() {
         return new PredicateUtil();
     }
 
-    public <T> PredicateUtil add(T object, Function<T, javax.persistence.criteria.Predicate> function) {
+    public <T> PredicateUtil add(T object, Function<T, Predicate> function) {
         predicates.add(function.apply(object));
         return this;
     }

@@ -5,8 +5,6 @@ import az.ingress.dao.entity.PaymentEntity.Fields;
 import az.ingress.model.criteria.PaymentCriteria;
 import az.ingress.model.enums.PaymentStatus;
 import az.ingress.util.PredicateUtil;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 
