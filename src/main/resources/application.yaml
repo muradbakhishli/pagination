@@ -9,3 +9,6 @@ spring:
     open-in-view: false
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
+
+  redis:
+    url: redis://localhost:6379

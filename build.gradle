@@ -41,6 +41,11 @@ dependencies {
     //aop
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
+    //redis-cache
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.27.2'
+
     //swagger
     implementation "org.springdoc:springdoc-openapi-ui:$openApiVersion"
 
