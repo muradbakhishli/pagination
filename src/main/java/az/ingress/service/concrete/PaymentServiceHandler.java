@@ -1,5 +1,6 @@
 package az.ingress.service.concrete;
 
+import az.ingress.aspect.ToLog;
 import az.ingress.dao.entity.PaymentEntity;
 import az.ingress.dao.entity.PaymentEntity.Fields;
 import az.ingress.dao.repository.PaymentRepository;
@@ -29,13 +30,14 @@ public class PaymentServiceHandler implements PaymentService {
     private final PaymentRepository paymentRepository;
 
 
+    @ToLog
     @Override
     public PaymentResponse getPayment(Long id) {
         var payment = fetchPaymentIfExist(id);
         return PAYMENT_MAPPER.toResponse(payment);
     }
 
-
+    @ToLog
     @Override
     public PageableResponse getPayments(PageCriteria pageCriteria, PaymentCriteria paymentCriteria) {
         var pageRequest = PageRequest.of(pageCriteria.getPage(), pageCriteria.getCount(), Sort.by(Fields.id));
@@ -45,15 +47,17 @@ public class PaymentServiceHandler implements PaymentService {
                 paymentsPage.hasNext(), paymentsPage.getTotalPages(), paymentsPage.getTotalElements());
     }
 
+    @ToLog
     @Override
     public PaymentResponse createPayment(PaymentRequest paymentRequest) {
-        log.info("ActionLog.createPayment.start - {}", paymentRequest);
+//        log.info("ActionLog.createPayment.start - {}", paymentRequest);
         var payment = PAYMENT_MAPPER.toEntity(paymentRequest);
         paymentRepository.save(payment);
-        log.info("ActionLog.createPayment.end - {}", paymentRequest);
+//        log.info("ActionLog.createPayment.end - {}", paymentRequest);
         return PAYMENT_MAPPER.toResponse(payment);
     }
 
+    @ToLog
     @Override
     public PaymentResponse updatePayment(Long id, PaymentRequest paymentRequest) {
         var payment = fetchPaymentIfExist(id);
@@ -62,6 +66,7 @@ public class PaymentServiceHandler implements PaymentService {
         return PAYMENT_MAPPER.toResponse(payment);
     }
 
+    @ToLog
     @Override
     public void deletePayment(Long id) {
         var payment = fetchPaymentIfExist(id);
